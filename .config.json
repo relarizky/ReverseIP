@@ -1,0 +1,14 @@
+{
+  "main": {
+    "saving_dir": "saved/"
+  },
+  "api": {
+    "HackerTarget": {
+      "key": null,
+      "page": null
+    },
+    "YouGetSignal": {
+      "key": null
+    }
+  }
+}
