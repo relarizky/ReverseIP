@@ -1,6 +1,6 @@
 {
-  "main": {
-    "saving_dir": "saved/"
+  "app": {
+    "save_dir": "/saved/"
   },
   "api": {
     "HackerTarget": {
