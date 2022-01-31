@@ -1,2 +1,2 @@
 [tools.pytest.ini_options]
-markers = ["api", "utility"]
+markers = ["api", "utility", "factory"]

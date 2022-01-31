@@ -59,7 +59,7 @@ class HackerTargetAPI(APIScrapper):
 
         parameter = {}
         parameter.update({"q": target})
-        parameter.update({"page": page} if page is not None else {})
+        parameter.update({"page": str(page)} if page is not None else {})
         parameter.update({"apikey": key} if key is not None else {})
 
         return parameter
