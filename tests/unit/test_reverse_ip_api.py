@@ -1,8 +1,8 @@
 import pytest
 import requests
 
+from library.api.whois_xml_api import WhoisXMLAPI
 from library.api.hacker_target_api import HackerTargetAPI
-from library.api.you_get_signal_api import YouGetSignalAPI
 
 # i use parametrize in case you want to add more API classes that use
 # the same GET or POST method for communcating with API endpoint
@@ -22,9 +22,14 @@ def test_api_get_request(monkeypatch, mock_response, api_obj_ref):
 
 
 @pytest.mark.api
-@pytest.mark.parametrize("api_obj_ref", [YouGetSignalAPI])
-def test_api_post_request(monkeypatch, mock_response, api_obj_ref):
+def test_api_whois_xml(monkeypatch, mock_response):
 
-    # mock text attribute of get class
+    # mock text attribute of post class
+    monkeypatch.setattr(requests.Session, "get", mock_response)
+    monkeypatch.setattr(requests.Session, "post", mock_response)
 
-    assert True
+    obj = WhoisXMLAPI("target.com")
+    obj.fetch()
+    obj.scrap()
+
+    assert obj.site[0] == "Hello World"

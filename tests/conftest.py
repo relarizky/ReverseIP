@@ -6,6 +6,7 @@ class MockResponse:
     """class for mocking get and post classes"""
 
     text = "Hello World"
+    status_code = 200
 
     def __enter__(self):
         return self
@@ -13,6 +14,12 @@ class MockResponse:
     def __exit__(self, *args, **kwargs):
         pass
 
+    def json(self):
+        return {
+            "result": [
+                {"name": "Hello World"}
+            ]
+        }
 
 class MockTextIOWrapper:
     """Class For Mocking Out TextIOWrapper"""

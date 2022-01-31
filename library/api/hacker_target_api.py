@@ -5,7 +5,24 @@ from library.api.base import APIScrapper
 
 class HackerTargetAPI(APIScrapper):
     """Scrapper For Hacker Target API
-    this class will be used in ReverseIP classes
+
+    for performing reverse ip address through hacker target API
+    this class will be used in ReverseIP classes.
+
+    Parameters
+        target  (str): target domain or ip address
+        page    (int): total page
+        key     (str): api key for hacker target api
+
+    Returns
+        object  (HackerTargetAPI)
+
+    Example
+        >>> x = HackerTargetAPI("target.com")
+        >>> x.fetch()
+        >>> x.scrap()
+        >>> print(x.site)
+        ['target.com', 'other.com']
     """
 
     END_POINT = "https://api.hackertarget.com/reverseiplookup/"
@@ -54,7 +71,8 @@ class HackerTargetAPI(APIScrapper):
 
         with requests.get(url=url, headers=headers, params=params) as req:
             # auto close the connection
-            self.text = req.text
+            if req.status_code == 200:
+                self.text = req.text
 
     def scrap(self) -> None:
         response = self.text
