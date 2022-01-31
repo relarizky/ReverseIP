@@ -1,7 +1,6 @@
 from library.api.base import APIScrapper
 from library.api.whois_xml_api import WhoisXMLAPI
 from library.reverse.base import ReverseIP
-from library.utility import config_file_reader
 
 
 class WhoisXML(ReverseIP):

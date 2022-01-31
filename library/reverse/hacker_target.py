@@ -24,7 +24,8 @@ class HackerTarget(ReverseIP):
     def create_api(self, *args, **kwargs) -> APIScrapper:
         return HackerTargetAPI(*args, **kwargs)
 
-    def reverse(self, target: str=None) -> None:
+    def reverse(self, *args, **kwargs) -> None:
+        target = args[0] or kwargs["target"]
         config = config_file_reader().get("api")
         page = config.get("HackerTarget").get("page") if config else None
         key = config.get("HackerTarget").get("page") if config else None
