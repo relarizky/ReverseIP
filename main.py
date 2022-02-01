@@ -38,11 +38,11 @@ def reverse_ip(option: int, target: str, displayed: bool = False) -> None:
 
 def banner() -> None:
     print(" _____                              _____ _____")
-    print("|  __ \                            |_   _|  __ \\")
+    print("|  __ \\                            |_   _|  __ \\")
     print("| |__) |_____   _____ _ __ ___  ___  | | | |__) |")
-    print("|  _  // _ \ \ / / _ \ '__/ __|/ _ \ | | |  ___/")
-    print("| | \ \  __/\ V /  __/ |  \__ \  __/_| |_| |")
-    print("|_|  \_\___| \_/ \___|_|  |___/\___|_____|_|")
+    print("|  _  // _ \\ \\ / / _ \\ '__/ __|/ _ \\ | | |  ___/")
+    print("| | \\ \\  __/\\ V /  __/ |  \\__ \\  __/_| |_| |")
+    print("|_|  \\_\\___| \\_/ \\___|_|  |___/\\___|_____|_|")
     print("--------------------------------------------")
 
 
@@ -60,7 +60,7 @@ def main() -> None:
     except ValueError:
         print("[-] Only accept number input!")
     except KeyboardInterrupt:
-        exit(0)
+        sys.exit(0)
 
     reverse_ip(option, target, displayed)
 
@@ -68,8 +68,8 @@ def main() -> None:
 if __name__ == "__main__":
 
     banner()
-    if not (1 < len(sys.argv) <= 3):
+    if not 1 < len(sys.argv) <= 3:
         print(f"[+] Usage: python3 {sys.argv[0]} target.com yes")
-        exit(0)
+        sys.exit(0)
 
     main()
