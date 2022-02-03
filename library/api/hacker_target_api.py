@@ -71,8 +71,9 @@ class HackerTargetAPI(APIScrapper):
 
         with requests.get(url=url, headers=headers, params=params) as req:
             # auto close the connection
-            if req.status_code == 200:
-                self.text = req.text
+            response = req.text
+            if req.status_code == 200 and "error check" not in response:
+                self.text = response 
 
     def scrap(self) -> None:
         response = self.text

@@ -52,9 +52,11 @@ def result_saver(api_name: str, target: str, site_list: list) -> None:
         with open(saving_file, "a+") as file:
             file.write(string + "\n")
 
-    if not os.path.isdir(SUB_DIR):
-        # create saving_dir in case it does not exist
-        os.makedirs(SUB_DIR, mode=0o777, exist_ok=True)
+    if site_list != []:
+        # prevent creating directory when the given site_list is empty
+        if not os.path.isdir(SUB_DIR):
+            # create saving_dir in case it does not exist
+            os.makedirs(SUB_DIR, mode=0o777, exist_ok=True)
 
-    for site in site_list:
-        write_file(site)
+        for site in site_list:
+            write_file(site)
