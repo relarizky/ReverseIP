@@ -33,7 +33,7 @@ def reverse_ip(option: int, target: str, displayed: bool = False) -> None:
         time.sleep(0.45)
         if displayed:
             for site in sites:
-                print(f"[+] {site}")
+                print(f"[*] {site}")
 
 
 def banner() -> None:
@@ -59,6 +59,7 @@ def main() -> None:
         option = int(input())
     except ValueError:
         print("[-] Only accept number input!")
+        sys.exit(0)
     except KeyboardInterrupt:
         sys.exit(0)
 
