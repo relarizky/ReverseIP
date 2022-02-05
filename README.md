@@ -38,6 +38,10 @@ if you create new API and ReverseIP class, store your API information in __.conf
 then call the stored information inside reverse() method in your ReverseIP class.<br>
 Looking at HackerTarget class will give you a guide.
 
+## To do
+ - Add more APIs
+ - Make it colorful
+
 ## Contribution
 any contribution will be really appreciated.
 
